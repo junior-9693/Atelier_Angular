@@ -9,7 +9,7 @@ import { ProduitService } from '../services/produit.service';
 })
 export class ProduitsComponent implements OnInit {
   newProduit = new Produit();
- 
+
 
 
   produits: Produit[]; //un tableau de Produit 
@@ -20,8 +20,14 @@ export class ProduitsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addProduit(){ 
-    console.log(this.newProduit); 
+  addProduit() {
+    console.log(this.newProduit);
+  }
+  supprimerProduit(p: Produit) {
+    //console.log(p);
+    let conf = confirm("Etes-vous sûr ?");
+    if (conf)
+      this.produitService.supprimerProduit(p);
   }
 
 }
